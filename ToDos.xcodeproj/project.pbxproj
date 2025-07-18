@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005689C92E2A804800FFE885 /* EditSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005689C82E2A804800FFE885 /* EditSectionView.swift */; };
+		005689CB2E2A808500FFE885 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005689CA2E2A808500FFE885 /* SettingView.swift */; };
 		5B9747822B6EB65800CBC46D /* ToDosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9747812B6EB65800CBC46D /* ToDosApp.swift */; };
 		5B9747842B6EB65800CBC46D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9747832B6EB65800CBC46D /* HomeView.swift */; };
 		5B9747862B6EB65900CBC46D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9747852B6EB65900CBC46D /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005689C82E2A804800FFE885 /* EditSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSectionView.swift; path = ToDos/EditSectionView.swift; sourceTree = SOURCE_ROOT; };
+		005689CA2E2A808500FFE885 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5B97477E2B6EB65800CBC46D /* ToDos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9747812B6EB65800CBC46D /* ToDosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDosApp.swift; sourceTree = "<group>"; };
 		5B9747832B6EB65800CBC46D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -112,10 +116,12 @@
 		5B9747A62B6EC73B00CBC46D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				005689C82E2A804800FFE885 /* EditSectionView.swift */,
 				5B9747832B6EB65800CBC46D /* HomeView.swift */,
 				5B9747A92B6ECB2C00CBC46D /* CreateSectionView.swift */,
 				5B97479F2B6EBD0900CBC46D /* ReminderListRowView.swift */,
 				5B9747A72B6EC76E00CBC46D /* ListCardView.swift */,
+				005689CA2E2A808500FFE885 /* SettingView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -196,9 +202,11 @@
 				5B97479A2B6EBB3F00CBC46D /* Reminder.swift in Sources */,
 				5B9747A02B6EBD0900CBC46D /* ReminderListRowView.swift in Sources */,
 				5B9747842B6EB65800CBC46D /* HomeView.swift in Sources */,
+				005689C92E2A804800FFE885 /* EditSectionView.swift in Sources */,
 				5B9747822B6EB65800CBC46D /* ToDosApp.swift in Sources */,
 				5B9747A82B6EC76E00CBC46D /* ListCardView.swift in Sources */,
 				5B97479C2B6EBBB100CBC46D /* ReminderList.swift in Sources */,
+				005689CB2E2A808500FFE885 /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +340,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDos/Preview Content\"";
+				DEVELOPMENT_TEAM = UFJH5YKJN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -344,7 +353,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftiedev.ToDos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepak.todos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -360,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDos/Preview Content\"";
+				DEVELOPMENT_TEAM = UFJH5YKJN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -372,7 +382,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftiedev.ToDos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepak.todos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -11,63 +11,76 @@ import SwiftData
 struct ReminderListView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var reminderList: ReminderList
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            HStack {
-                Text(reminderList.name)
-                Spacer()
-                Text("\($reminderList.reminder.count)")
-            }
-            .font(.system(.largeTitle, design: .rounded))
-            .foregroundColor(.primary)
-            .padding(.horizontal)
-            .bold()
+            headerView
             
             List {
-                ForEach(reminderList.reminder) { reminders in
-                    ReminderRowView(reminder: reminders)
+                Section("Reminders") {
+                    ForEach(reminderList.reminder) { reminder in
+                        ReminderRowView(reminder: reminder)
+                    }
+                    .onDelete(perform: delete)
                 }
-                .onDelete(perform: delete)
             }
-            .listStyle(.inset)
+            .listStyle(.insetGrouped)
         }
+        .navigationTitle(reminderList.name)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Button {
                     reminderList.reminder.append(Reminder(name: ""))
                 } label: {
-                    HStack(spacing: 7) {
-                        Image(systemName: "plus.circle.fill")
-                        Text("New Reminder")
-                    }
-                    .font(.system(.body, design: .rounded))
-                    .bold()
-                    .foregroundColor(.primary)
+                    Label("New Reminder", systemImage: "plus.circle.fill")
+                        .font(.system(.body, design: .rounded).bold())
+                        .foregroundColor(.primary)
                 }
+
                 Spacer()
+
+                Button {
+                    saveEachReminder()
+                } label: {
+                    Label("Save", systemImage: "tray.and.arrow.down.fill")
+                        .font(.system(.body, design: .rounded).bold())
+                        .foregroundColor(.blue)
+                }
             }
         }
     }
-    
+
+    var headerView: some View {
+        HStack {
+            Text(reminderList.name)
+                .font(.system(.largeTitle, design: .rounded).bold())
+            Spacer()
+            Text("\(reminderList.reminder.count)")
+                .font(.title3)
+                .foregroundColor(.secondary)
+        }
+        .padding(.horizontal)
+    }
+
+    func saveEachReminder() {
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            print("Failed to save reminders: \(error.localizedDescription)")
+        }
+    }
+
     func delete(_ indexSet: IndexSet) {
         for index in indexSet {
             reminderList.reminder.remove(at: index)
         }
-        try! modelContext.save()
-    }
-}
-
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: ReminderList.self, configurations: config)
-        let example = ReminderList(name: "Scheduled", iconName: "calendar", reminder: [Reminder(name: "Lunch with Janet")])
-        
-        return ReminderListView(reminderList: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to delete reminder: \(error.localizedDescription)")
+        }
     }
 }

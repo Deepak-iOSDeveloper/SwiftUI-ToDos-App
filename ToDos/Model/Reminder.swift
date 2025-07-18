@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Reminder {
+class Reminder {
     var name: String
     var isCompleted = false
     
